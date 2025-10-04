@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { TasksList } from './entities/task'
 
 function App() {
+
   return (
     <QueryClientProvider client={queryClient}>
       <div>

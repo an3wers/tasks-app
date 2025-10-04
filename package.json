@@ -1,5 +1,23 @@
 {
-    "name": "task-app",
-    "private": true,
-    "version": "0.1.0"
+  "name": "task-app",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "b": "pnpm --filter @task-app/backend",
+    "w": "pnpm --filter @task-app/webapp",
+    "dev": "pnpm -r --parallel dev",
+    "typecheck": "concurrently 'pnpm b typecheck' 'pnpm w typecheck'",
+    "pretty": "pnpm b pretty && pnpm w pretty",
+    "lint": "pnpm b lint && pnpm w lint",
+    "lint:fix": "pnpm b lint:fix && pnpm w lint:fix",
+    "format": "pnpm b format && pnpm w format",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3"
+  }
 }

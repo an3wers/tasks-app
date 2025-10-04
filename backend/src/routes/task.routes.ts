@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import { router, publicProcedure } from '../trpc.ts'
 // import { TRPCError } from '@trpc/server'
 

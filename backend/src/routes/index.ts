@@ -1,4 +1,4 @@
-import { router, publicProcedure } from '../trpc.ts'
+import { router } from '../trpc.ts'
 import { taskRouter } from './task.routes.ts'
 
 export const appRouter = router({
