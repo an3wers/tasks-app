@@ -1,0 +1,4 @@
+{
+  "*.{ts,js,json}": ["prettier --log-level warn --cache --write"],
+  "*.{ts,js}": ["eslint --fix"]
+}
