@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prettify": "prettier --loglevel warn --cache --write '{src/**/*.{ts,tsx,js,jsx, css, scss, json}' '!**/{node_modules, dist}/**/*'"
+    "pretty": "prettier --loglevel warn --cache --write '{src/**/*.{ts,tsx,js,jsx, css, scss, json}' '!**/{node_modules, dist}/**/*'",
+    "typecheck": "tsc --noEmit --project ./tsconfig.json"
   },
   "dependencies": {
     "@task-app/backend": "workspace:*",

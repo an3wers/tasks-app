@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "node --watch ./src/index.ts",
     "start": "node ./src/index.ts",
-    "build": "rm -rf dist && tsc -b ./tsconfig.json",
-    "start:prod": "cross-env NODE_ENV=production node ./dist/index.js"
+    "build": "rm -rf dist && tsc -build ./tsconfig.json",
+    "start:prod": "cross-env NODE_ENV=production node ./dist/index.js",
+    "typecheck": "tsc --noEmit --project ./tsconfig.json",
+    "pretty": "prettier --loglevel warn --cache --write '{src/**/*.{ts,tsx,js,jsx, css, scss, json}' '!**/{node_modules, dist}/**/*'"
   },
   "author": "",
   "license": "ISC",
