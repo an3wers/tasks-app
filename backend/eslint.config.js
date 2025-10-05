@@ -1,8 +1,9 @@
 import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import { defineConfig } from 'eslint/config'
 
-export default tseslint.config(
+export default defineConfig([
   // Базовые рекомендуемые правила для JavaScript
   js.configs.recommended,
 
@@ -14,10 +15,10 @@ export default tseslint.config(
 
   {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
-        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.dirname,
       },
     },
 
@@ -53,6 +54,5 @@ export default tseslint.config(
 
   {
     ignores: ['dist/**', 'node_modules/**', '*.config.js'],
-  }
-)
-
+  },
+])

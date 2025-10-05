@@ -1,1 +1,1 @@
-export { TasksList } from './tasks-list'
+export { useTasksQuery } from './api/use-tasks-query'

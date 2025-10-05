@@ -1,3 +1,4 @@
+import { BoardsItemPage } from '@/pages/boards'
 import { createLazyFileRoute } from '@tanstack/react-router'
 
 export const Route = createLazyFileRoute('/boards/$boardId')({
@@ -5,7 +6,5 @@ export const Route = createLazyFileRoute('/boards/$boardId')({
 })
 
 function BoardItem() {
-  const { boardId } = Route.useParams()
-
-  return <div>Hello {`/boards/${boardId}`}</div>
+  return <BoardsItemPage />
 }

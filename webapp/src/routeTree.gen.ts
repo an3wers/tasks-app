@@ -36,7 +36,9 @@ const BoardsBoardIdLazyRoute = BoardsBoardIdLazyRouteImport.update({
   id: '/boards/$boardId',
   path: '/boards/$boardId',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/boards/$boardId.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./routes/boards/$boardId.lazy').then((d) => d.Route),
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -111,4 +113,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutIndexLazyRoute: AboutIndexLazyRoute,
   BoardsIndexLazyRoute: BoardsIndexLazyRoute,
 }
-export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>()
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
