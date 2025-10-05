@@ -9,15 +9,23 @@
     "start": "node ./src/index.ts",
     "build": "rm -rf dist && tsc -build ./tsconfig.json",
     "start:prod": "cross-env NODE_ENV=production node ./dist/index.js",
+    "prisma:md": "prisma migrate dev",
+    "prisma:gen": "prisma generate",
+    "prisma:push": "prisma db push",
     "typecheck": "tsc --noEmit --project ./tsconfig.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "pretty": "prettier --log-level warn --cache --write '{src/**/*,*}.{ts,js,json,yml}' '!**/{node_modules, dist}/**/*'",
-    "format": "npm run pretty && npm run lint:fix"
+    "format": "npm run pretty && npm run lint:fix",
+    "prepare": "pnpm prisma:gen"
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^6.16.3",
     "@trpc/server": "^11.6.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
@@ -35,6 +43,7 @@
     "cross-env": "^10.0.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
+    "prisma": "^6.16.3",
     "typescript-eslint": "^8.18.1"
   }
 }
