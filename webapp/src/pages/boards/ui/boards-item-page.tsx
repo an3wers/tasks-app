@@ -3,7 +3,12 @@ import { useParams } from '@tanstack/react-router'
 
 export const BoardsItemPage = () => {
   const { boardId } = useParams({ strict: false })
-  const { data, isLoading, isFetching, isError } = useTasksQuery()
+
+  if (!boardId) {
+    throw new Error('Board ID is required')
+  }
+
+  const { data, isLoading, isFetching, isError } = useTasksQuery({ boardId })
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import type { AppRouter } from '@task-app/backend/src/routes'
+import type { AppRouter } from '@task-app/backend/src/core/app.routes'
 import { QueryClient } from '@tanstack/react-query'
 import { createTRPCClient, httpBatchLink } from '@trpc/client'
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query'

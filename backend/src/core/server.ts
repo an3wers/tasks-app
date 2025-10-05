@@ -1,13 +1,14 @@
 import express, { type Express } from 'express'
 import * as trpcExpress from '@trpc/server/adapters/express'
-import { appRouter } from './routes/index.ts'
+import { appRouter } from './app.routes.ts'
 import cors from 'cors'
+import { config } from '../env.ts'
 
 const app: Express = express()
 
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: config.origin,
     credentials: true,
   })
 )
@@ -23,7 +24,6 @@ app.get('/health', (req, res) => {
 })
 
 // tRPC endpoint
-
 app.use('/trpc', trpcExpress.createExpressMiddleware({ router: appRouter }))
 
 export { app }
